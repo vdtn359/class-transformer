@@ -1,10 +1,9 @@
 {
-  "name": "class-transformer",
+  "name": "class-transformer-imp",
   "version": "0.2.3",
   "description": "Proper decorator-based transformation / serialization / deserialization of plain javascript objects to class constructors",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "private": true,
   "author": {
     "name": "Umed Khudoiberdiev",
     "email": "pleerock.me@gmail.com"
