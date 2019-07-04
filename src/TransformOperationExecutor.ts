@@ -246,19 +246,23 @@ export class TransformOperationExecutor {
                         finalValue = this.transform(subSource, subValue, type, arrayType, isSubValueMap, level + 1);
                         finalValue = this.applyCustomTransformations(finalValue, (targetType as Function), transformKey, value, this.transformationType);
                     }
-
-                    if (newValue instanceof Map) {
-                        newValue.set(newValueKey, finalValue);
-                    } else {
-                        newValue[newValueKey] = finalValue;
+                    if (!this.options.ignoreUndefinedValues || finalValue !== undefined){
+                        if (newValue instanceof Map) {
+                            newValue.set(newValueKey, finalValue);
+                        } else {
+                            newValue[newValueKey] = finalValue;
+                        }
                     }
+
                 } else if (this.transformationType === TransformationType.CLASS_TO_CLASS) {
                     let finalValue = subValue;
                     finalValue = this.applyCustomTransformations(finalValue, (targetType as Function), key, value, this.transformationType);
-                    if (newValue instanceof Map) {
-                        newValue.set(newValueKey, finalValue);
-                    } else {
-                        newValue[newValueKey] = finalValue;
+                    if (!this.options.ignoreUndefinedValues || finalValue !== undefined){
+                        if (newValue instanceof Map) {
+                            newValue.set(newValueKey, finalValue);
+                        } else {
+                            newValue[newValueKey] = finalValue;
+                        }
                     }
                 }
 

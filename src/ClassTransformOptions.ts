@@ -74,4 +74,9 @@ export interface ClassTransformOptions {
      * DEFAULT: `false`
      */
     enableImplicitConversion?: boolean;
+
+    /**
+     * Whether to exclude undefined values
+     */
+    ignoreUndefinedValues?: boolean;
 }
